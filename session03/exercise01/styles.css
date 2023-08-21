@@ -1,0 +1,119 @@
+body {
+    color: rgb(105, 105, 105);
+    text-align: center;
+}
+
+h1 {
+    color: rgb(71, 184, 255);
+}
+
+.kotak1 p {
+    color: rgb(0 0 255);
+}
+
+.icons {
+    display: flex;
+    column-gap: 10px;
+    mix-blend-mode: color-burn;
+}
+
+.icon {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    outline: 2px solid rgb(105, 105, 105);
+    transition-property: outline-offset, outline-color, background-color;
+    transition-duration: o.25s;
+}
+
+.icon:hover {
+    outline-offset: 4px;
+}
+
+.icon i {
+    margin: auto;
+}
+
+.icon:hover i {
+    animation: shake 0.25;
+}
+
+@keyframes shake {
+    10% {
+        transform: rotate(15deg);
+    }
+    20% {
+        transform: rotate(-15deg);
+    }
+    30% {
+        transform: rotate(15deg);
+    }
+    40% {
+        transform: rotate(-15deg);
+    }
+}
+
+#content {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 20px;
+}
+
+.kotak1 {
+    text-align: left;
+    grid-row: 1/10;
+}
+.kotak2 {
+    background-image: url(assets/man-wearing-glasses.jpg);
+    background-position: center center;
+    background-size: contain;
+    grid-column: 2/10;
+    grid-row: 1/4;
+}
+img {
+    width: 100%;
+    border-radius: 10px;
+}
+.kotak3 {
+    text-align: left;
+    color: rgb(71, 184, 255);
+    grid-column: 2/6;
+    grid-row: 4/6;
+}
+.kotak4 {
+    text-align: left;
+    color: rgb(71, 184, 255);
+    grid-column: 6/10;
+    grid-row: 4/6;
+}
+.kotak5 {
+    text-align: left;
+    color: rgb(71, 184, 255);
+    grid-column: 2/6;
+    grid-row: 6/9;
+}
+.kotak6 {
+    text-align: left;
+    color: rgb(71, 184, 255);
+    grid-column: 6/10;
+    grid-row: 6/9;
+}
+.kotak7 {
+    grid-column: 2/10;
+}
+
+@media screen and (max-width: 768px) {
+    #content {
+        grid-template-columns: 1fr;
+    }
+}
+
+#content div {
+    background-color: rgb(71, 184, 255);
+    border-radius: 10px;
+    padding: 30px;
+}
