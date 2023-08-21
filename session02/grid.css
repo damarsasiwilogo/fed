@@ -15,6 +15,7 @@ body {
 
 .kotak1 {
     grid-column: 1/4;
+    grid-row: 1/10;
 }
 
 .kotak2 {
