@@ -1,0 +1,23 @@
+h1 {
+    color: brown;
+}
+
+p {
+    color:red;
+}
+
+.text-green {
+    color:green;
+}
+
+.bg-blue {
+    background-color:blue;
+}
+
+#heading-utama {
+    color:greenyellow;
+}
+
+a [href] {
+    color:yellow;
+}
