@@ -14,7 +14,6 @@ h1 {
 .icons {
     display: flex;
     column-gap: 10px;
-    mix-blend-mode: color-burn;
 }
 
 .icon {
@@ -24,19 +23,12 @@ h1 {
     border-radius: 50%;
     outline: 2px solid rgb(105, 105, 105);
     transition-property: outline-offset, outline-color, background-color;
-    transition-duration: o.25s;
+    transition-duration: 0.25s;
 }
 
 .icon:hover {
     outline-offset: 4px;
-}
-
-.icon i {
-    margin: auto;
-}
-
-.icon:hover i {
-    animation: shake 0.25;
+    animation: shake 0.25s;
 }
 
 @keyframes shake {
@@ -59,7 +51,6 @@ h1 {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: repeat(5, 1fr);
     grid-gap: 20px;
 }
 
@@ -70,9 +61,10 @@ h1 {
 .kotak2 {
     background-image: url(assets/man-wearing-glasses.jpg);
     background-position: center center;
-    background-size: contain;
+    background-size: cover;
     grid-column: 2/10;
     grid-row: 1/4;
+    min-height: 200px;
 }
 img {
     width: 100%;
@@ -106,9 +98,53 @@ img {
     grid-column: 2/10;
 }
 
-@media screen and (max-width: 768px) {
-    #content {
-        grid-template-columns: 1fr;
+#content h1 {
+    font-size: 40px;
+}
+#content h4 {
+    font-size: 20px;
+}
+.btn {
+    border-radius: 10px;
+    background-color: rgb(71, 184, 255);
+    color: rgb(105, 105, 105);
+    border-width: 0pt;
+    padding: 0px 6%;
+}
+
+@media screen and (max-width: 974px) {
+    .kotak1 {
+        grid-row: 8/10;
+        grid-column: 1/10;
+    }
+    .kotak2 {
+        grid-column: 1/10;
+        grid-row: 1/5;
+        min-height: 300px;
+        background-size: cover;
+    }
+    .kotak3{
+        grid-row: 5/6;
+        background-color: inherit;
+        grid-column: 1/5;
+    }
+    .kotak4 {
+        background-color: inherit;
+        grid-column: 6/10;
+        grid-row: 5/7;
+    }
+    .kotak5 {
+        background-color: inherit;
+        grid-column: 1/5;
+        grid-row: 6/7;
+    }
+    .kotak6 {
+        background-color: inherit;
+        grid-row: 6/7;
+        grid-column: 6/10;
+    }
+    .kotak7 {
+        grid-column: 1/10;
     }
 }
 
