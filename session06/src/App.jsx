@@ -1,4 +1,4 @@
-import { ChakraProvider, Button, IconButton, Container, Flex, FormControl, useDisclosure, Heading, VStack, Text, Input, Checkbox, Spacer } from "@chakra-ui/react";
+import { ChakraProvider, Button, IconButton, Container, Flex, FormControl, useDisclosure, Heading, VStack, Text, Input, Checkbox, Spacer, useColorMode } from "@chakra-ui/react";
 import theme from "./theme";
 import { DeleteIcon } from "@chakra-ui/icons";
 import React, { useState } from "react";
@@ -11,6 +11,7 @@ import {
   AlertDialogOverlay,
   AlertDialogCloseButton,
 } from '@chakra-ui/react'
+import { FaSun, FaMoon } from 'react-icons/fa'
 
 
 function App() {
@@ -36,9 +37,9 @@ function App() {
   
   function showDeleteDialog({todo, id}) {
     const { isOpen, onOpen, onClose } = useDisclosure();
-
+    
     return (
-        <>
+      <>
             <IconButton icon={<DeleteIcon/>} onClick={onOpen} />
             <AlertDialog isOpen={isOpen} onClose={onClose}>
             <AlertDialogOverlay>
@@ -54,8 +55,8 @@ function App() {
             </AlertDialog>
         </>
     );
-}
-
+  }
+  
   function deleteTodo(id) {
     const copy = todos.filter((todo) =>{
       return todo.id !== id;
@@ -63,16 +64,24 @@ function App() {
     setTodos(copy);
   };
   // function deleteTodo(id) {
-  //   const copy = [...todos];
-  //   copy.splice(id, 1);
-  //   setTodos(copy);
-  // };
-
+    //   const copy = [...todos];
+    //   copy.splice(id, 1);
+    //   setTodos(copy);
+    // };
+    
   const todoCompleted = todos.filter((todo) => todo.completed).length;
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
   <ChakraProvider theme={theme}>
     <Container maxW={"container.md"}>
+    <IconButton 
+                icon={colorMode === 'light' ? <FaSun /> : <FaMoon />}
+                isRound='true'
+                size='md'
+                alignSelf='flex-end'
+                onClick={toggleColorMode}
+            />
     <VStack 
     borderBottomColor={"gray.300"} 
     borderBottomWidth={"1px"} 
