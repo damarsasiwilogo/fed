@@ -1,4 +1,4 @@
-import { ChakraProvider, Box, Button, IconButton, Container, Flex, FormControl, FormLabel, Heading, VStack, Text, Input, Checkbox, Spacer } from "@chakra-ui/react";
+import { ChakraProvider, Button, IconButton, Container, Flex, FormControl, FormLabel, Heading, VStack, Text, Input, Checkbox, Spacer } from "@chakra-ui/react";
 import theme from "./theme";
 import { DeleteIcon } from "@chakra-ui/icons";
 import React, { useState } from "react";
@@ -34,14 +34,6 @@ function App() {
 
   const todoCompleted = todos.filter((todo) => todo.completed).length;
 
-  // const handleAddTodo = () => {
-  //   if (newTodo) {
-  //     const newTodos = [...todos, {value: newTodo, isDone: false}];
-  //     setTodos(newTodos);
-  //     setNewTodo("");
-  //   }
-  // };
-
   return (
   <ChakraProvider theme={theme}>
     <Container maxW={"container.md"}>
@@ -51,13 +43,11 @@ function App() {
     pb={"1em"} >
           <Text bgGradient="linear(to-l, #7928CA, #FF0080)" bgClip="text" fontSize="6xl" fontWeight="extrabold">Todo List App
           </Text>
-          <Box>
             <FormControl width={"100%"} mb={"1em"}>
               <FormLabel>Add To do</FormLabel>
               <Input px={"4"} placeholder="What do you want to do?" value={newTodo} onChange={(e) => setNewTodo(e.target.value)}/>
             </FormControl>
             <Button onClick={addTodo} colorScheme="blue">Submit</Button>
-          </Box>
     </VStack>
     <VStack >
       <Heading my={"2em"} bgGradient="linear(to-l, #7928CA, #FF0080)" bgClip="text" fontSize="3xl" fontWeight="extrabold">Done: {todoCompleted}</Heading>
