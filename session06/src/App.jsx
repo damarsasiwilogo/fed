@@ -3,7 +3,14 @@ import theme from "./theme";
 import { DeleteIcon } from "@chakra-ui/icons";
 import React, { useState } from "react";
 import {
-  AlertDialog, AlertDialogBody, AlertDialogFooter, AlertDialogHeader, AlertDialogContent, AlertDialogOverlay, AlertDialogCloseButton } from '@chakra-ui/react'
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogContent,
+  AlertDialogOverlay,
+  AlertDialogCloseButton,
+} from '@chakra-ui/react'
 
 
 function App() {
@@ -27,8 +34,8 @@ function App() {
     }
   };
   
-  function showDeleteDialog({todo, deleteTodo}) {
-    const { isOpen, onOpen, onClose } = useDisclosure()
+  function showDeleteDialog({todo, id}) {
+    const { isOpen, onOpen, onClose } = useDisclosure();
 
     return (
         <>
@@ -88,7 +95,7 @@ function App() {
               <Text>{todo.value}</Text>
             </Checkbox>
             <Spacer/>
-            <IconButton variant="outline" colorScheme="red" icon={<DeleteIcon />} onClick={() => deleteTodo}></IconButton>
+            <IconButton variant="outline" colorScheme="red" icon={<DeleteIcon />} onClick={() => showDeleteDialog(id)}></IconButton>
           </Flex>
           ))}
     </VStack>
