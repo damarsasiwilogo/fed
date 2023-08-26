@@ -1,8 +1,9 @@
-import { ChakraProvider, Button, IconButton, Container, Flex, FormControl, FormLabel, Heading, VStack, Text, Input, Checkbox, Spacer } from "@chakra-ui/react";
+import { ChakraProvider, Button, IconButton, Container, Flex, FormControl, useDisclosure, Heading, VStack, Text, Input, Checkbox, Spacer } from "@chakra-ui/react";
 import theme from "./theme";
 import { DeleteIcon } from "@chakra-ui/icons";
 import React, { useState } from "react";
-
+import {
+  AlertDialog, AlertDialogBody, AlertDialogFooter, AlertDialogHeader, AlertDialogContent, AlertDialogOverlay, AlertDialogCloseButton } from '@chakra-ui/react'
 
 
 function App() {
@@ -25,12 +26,40 @@ function App() {
       setNewTodo("");
     }
   };
+  
+  function showDeleteDialog({todo, deleteTodo}) {
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
+    return (
+        <>
+            <IconButton icon={<DeleteIcon/>} onClick={onOpen} />
+            <AlertDialog isOpen={isOpen} onClose={onClose}>
+            <AlertDialogOverlay>
+            <AlertDialogContent>
+            <AlertDialogHeader>Delete Todo</AlertDialogHeader>
+            <AlertDialogBody>Are you sure you want to delete this todo item?</AlertDialogBody>
+            <AlertDialogFooter>
+                <Button variant="danger" onClick={() => deleteTodo(todo.id, onClose)}>Confirm</Button>
+                <Button variant="secondary" onClick={onClose}>Cancel</Button>
+            </AlertDialogFooter>
+            </AlertDialogContent>
+            </AlertDialogOverlay>
+            </AlertDialog>
+        </>
+    );
+}
 
   function deleteTodo(id) {
-    const copy = [...todos];
-    copy.splice(id, 1);
+    const copy = todos.filter((todo) =>{
+      return todo.id !== id;
+    });
     setTodos(copy);
   };
+  // function deleteTodo(id) {
+  //   const copy = [...todos];
+  //   copy.splice(id, 1);
+  //   setTodos(copy);
+  // };
 
   const todoCompleted = todos.filter((todo) => todo.completed).length;
 
@@ -44,8 +73,7 @@ function App() {
           <Text bgGradient="linear(to-l, #7928CA, #FF0080)" bgClip="text" fontSize="6xl" fontWeight="extrabold">Todo List App
           </Text>
             <FormControl width={"100%"} mb={"1em"}>
-              <FormLabel>Add To do</FormLabel>
-              <Input px={"4"} placeholder="What do you want to do?" value={newTodo} onChange={(e) => setNewTodo(e.target.value)}/>
+              <Input placeholder="What do you want to do?" value={newTodo} onChange={(e) => setNewTodo(e.target.value)}/>
             </FormControl>
             <Button onClick={addTodo} colorScheme="blue">Submit</Button>
     </VStack>
@@ -60,7 +88,7 @@ function App() {
               <Text>{todo.value}</Text>
             </Checkbox>
             <Spacer/>
-            <IconButton variant="outline" colorScheme="red" icon={<DeleteIcon />} onClick={() => deleteTodo(id)}></IconButton>
+            <IconButton variant="outline" colorScheme="red" icon={<DeleteIcon />} onClick={() => deleteTodo}></IconButton>
           </Flex>
           ))}
     </VStack>
