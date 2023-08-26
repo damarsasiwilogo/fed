@@ -1,0 +1,199 @@
+/* body {
+  color: rgb(105, 105, 105);
+  text-align: center;
+}
+
+h1 {
+  color: rgb(71, 184, 255);
+}
+
+.kotak1 p {
+  color: rgb(0 0 255);
+}
+
+.icons {
+  display: flex;
+  column-gap: 10px;
+}
+
+.icon {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  outline: 2px solid rgb(105, 105, 105);
+  transition-property: outline-offset, outline-color, background-color;
+  transition-duration: 0.25s;
+}
+
+.icon:hover {
+  outline-offset: 4px;
+  animation: shake 0.25s;
+}
+
+@keyframes shake {
+  10% {
+      transform: rotate(15deg);
+  }
+  20% {
+      transform: rotate(-15deg);
+  }
+  30% {
+      transform: rotate(15deg);
+  }
+  40% {
+      transform: rotate(-15deg);
+  }
+}
+
+#content {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-gap: 20px;
+}
+
+.kotak1 {
+  text-align: left;
+  grid-row: 1/10;
+}
+.kotak2 {
+  background-image: url(assets/man-wearing-glasses.jpg);
+  background-position: center center;
+  background-size: cover;
+  grid-column: 2/10;
+  grid-row: 1/4;
+  min-height: 200px;
+}
+img {
+  width: 100%;
+  border-radius: 10px;
+}
+.kotak3 {
+  text-align: left;
+  color: rgb(71, 184, 255);
+  grid-column: 2/6;
+  grid-row: 4/6;
+}
+.kotak4 {
+  text-align: left;
+  color: rgb(71, 184, 255);
+  grid-column: 6/10;
+  grid-row: 4/6;
+}
+.kotak5 {
+  text-align: left;
+  color: rgb(71, 184, 255);
+  grid-column: 2/6;
+  grid-row: 6/9;
+}
+.kotak6 {
+  text-align: left;
+  color: rgb(71, 184, 255);
+  grid-column: 6/10;
+  grid-row: 6/9;
+}
+.kotak7 {
+  grid-column: 2/10;
+}
+
+#content h1 {
+  font-size: 40px;
+}
+#content h4 {
+  font-size: 20px;
+}
+.btn {
+  border-radius: 10px;
+  background-color: rgb(71, 184, 255);
+  color: rgb(105, 105, 105);
+  border-width: 0pt;
+  padding: 0px 9%;
+}
+
+@media screen and (max-width: 974px) {
+  .kotak1 {
+      grid-row: 8/10;
+      grid-column: 1/10;
+  }
+  .kotak2 {
+      grid-column: 1/10;
+      grid-row: 1/5;
+      min-height: 300px;
+      background-size: cover;
+  }
+  .kotak3{
+      grid-row: 5/6;
+      background-color: inherit;
+      grid-column: 1/5;
+  }
+  .kotak4 {
+      background-color: inherit;
+      grid-column: 6/10;
+      grid-row: 5/7;
+  }
+  .kotak5 {
+      background-color: inherit;
+      grid-column: 1/5;
+      grid-row: 6/7;
+  }
+  .kotak6 {
+      background-color: inherit;
+      grid-row: 6/7;
+      grid-column: 6/10;
+  }
+  .kotak7 {
+      grid-column: 1/10;
+  }
+}
+
+#content div {
+  background-color: rgb(71, 184, 255);
+  border-radius: 10px;
+  padding: 30px;
+} */
+
+.color-red {
+  color: red;
+}
+
+.App {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
