@@ -1,7 +1,7 @@
 import { ChakraProvider, Button, IconButton, Container, Flex, FormControl, useDisclosure, Heading, VStack, Text, Input, Checkbox, Spacer, useColorMode } from "@chakra-ui/react";
 import theme from "./theme";
 import { DeleteIcon } from "@chakra-ui/icons";
-import React, { useState } from "react";
+import React, { useState, } from "react";
 import {
   AlertDialog,
   AlertDialogBody,
@@ -15,6 +15,8 @@ import { FaSun, FaMoon } from 'react-icons/fa'
 
 
 function App() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [deletedID, setDeletedID] = useState(null);
   const [todos, setTodos] = useState([
     {
       value: "Tennis",
@@ -35,33 +37,19 @@ function App() {
     }
   };
   
-  function showDeleteDialog({todo, id}) {
-    const { isOpen, onOpen, onClose } = useDisclosure();
+  function showDeleteDialog(id) {
+
     
-    return (
-      <>
-            <IconButton icon={<DeleteIcon/>} onClick={onOpen} />
-            <AlertDialog isOpen={isOpen} onClose={onClose}>
-            <AlertDialogOverlay>
-            <AlertDialogContent>
-            <AlertDialogHeader>Delete Todo</AlertDialogHeader>
-            <AlertDialogBody>Are you sure you want to delete this todo item?</AlertDialogBody>
-            <AlertDialogFooter>
-                <Button variant="danger" onClick={() => deleteTodo(todo.id, onClose)}>Confirm</Button>
-                <Button variant="secondary" onClick={onClose}>Cancel</Button>
-            </AlertDialogFooter>
-            </AlertDialogContent>
-            </AlertDialogOverlay>
-            </AlertDialog>
-        </>
-    );
+    setDeletedID(id);
+    onOpen();
   }
   
-  function deleteTodo(id) {
-    const copy = todos.filter((todo) =>{
-      return todo.id !== id;
+  function deleteTodo() {
+    const copy = todos.filter((todo, id) =>{
+      return id !== deletedID;
     });
     setTodos(copy);
+    onClose();
   };
   // function deleteTodo(id) {
     //   const copy = [...todos];
@@ -105,6 +93,18 @@ function App() {
             </Checkbox>
             <Spacer/>
             <IconButton variant="outline" colorScheme="red" icon={<DeleteIcon />} onClick={() => showDeleteDialog(id)}></IconButton>
+            <AlertDialog isOpen={isOpen} onClose={onClose}>
+                    <AlertDialogOverlay>
+                    <AlertDialogContent>
+                    <AlertDialogHeader>Delete Todo</AlertDialogHeader>
+                    <AlertDialogBody>Are you sure you want to delete this todo item?</AlertDialogBody>
+                    <AlertDialogFooter>
+                        <Button onClick={onClose}>Cancel</Button>
+                        <Button colorScheme="red" ml="3" onClick={() => deleteTodo()}>Confirm</Button>
+                    </AlertDialogFooter>
+                    </AlertDialogContent>
+                    </AlertDialogOverlay>
+            </AlertDialog>
           </Flex>
           ))}
     </VStack>
