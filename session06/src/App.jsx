@@ -9,7 +9,6 @@ import {
   AlertDialogHeader,
   AlertDialogContent,
   AlertDialogOverlay,
-  AlertDialogCloseButton,
 } from '@chakra-ui/react'
 import { FaSun, FaMoon } from 'react-icons/fa'
 
