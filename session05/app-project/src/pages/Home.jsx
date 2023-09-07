@@ -5,7 +5,7 @@ import Navigation from "../components/Navigation";
 
 function Home({ text }) {
     const [counter, setCounter] = useState(0);
-    const [dataDiri, setDataDiri] = useState({ nama: "ridho", umur: 20 });
+    const [dataDiri, setDataDiri] = useState({ nama: "Damar", umur: 20 });
 
     useEffect(() => {
         const interval = setInterval(() => {
