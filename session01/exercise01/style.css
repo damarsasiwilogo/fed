@@ -1,21 +1,22 @@
 * {
-    text-align: center;
+  text-align: center;
 }
 
 img {
-    width: 70%;
+  width: 70%;
+  border-radius: 2%;
 }
 
 body {
-    margin: 50px 25%;
-    border: 1px solid;
-    padding: 50px 1px;
-    border-radius: 10px;
+  margin: 50px 25%;
+  border: 1px solid;
+  padding: 50px 1px;
+  border-radius: 10px;
 }
 
 button {
-    background-color: rgb(50, 50, 207);
-    color: rgb(255, 255, 255);
-    padding: 15px 35px;
-    border-radius: 5px;
+  background-color: rgb(50, 50, 207);
+  color: rgb(255, 255, 255);
+  padding: 15px 35px;
+  border-radius: 5px;
 }
